@@ -21,10 +21,18 @@
   <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500">
 
   <style>
+    /* Define default CSS variables */
+    :root {
+      --base: #ffffff;
+      --spacing: 15px;
+      --blur: 10px;
+    }
 
-    /*
-      misc styles, nothing to do with CSS variables
-    */
+    /* Utilize CSS variables */
+    img {
+      padding: var(--spacing);
+      background: var(--base);
+    }
 
     body {
       text-align: center;
