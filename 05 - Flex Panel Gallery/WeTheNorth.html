@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Championship Flex (Panels) 💪</title>
+  <link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <style>
+    html {
+      box-sizing: border-box;
+      background: #ffc600;
+      font-family: 'helvetica neue';
+      font-size: 20px;
+      font-weight: 200;
+    }
+    
+    body {
+      margin: 0;
+    }
+    
+    *, *:before, *:after {
+      box-sizing: inherit;
+    }
+
+    .panels {
+      min-height: 100vh;
+      overflow: hidden;
+      display: flex;
+    }
+
+    .panel {
+      background: #6B0F9C;
+      box-shadow: inset 0 0 0 5px rgba(255,255,255,0.1);
+      color: white;
+      text-align: center;
+      align-items: center;
+      /* Safari transitionend event.propertyName === flex */
+      /* Chrome + FF transitionend event.propertyName === flex-grow */
+      transition:
+        font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+        flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+        background 0.2s;
+      font-size: 20px;
+      background-size: cover;
+      background-position: center;
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .panel1 { background-image:url(https://images.performgroup.com/di/library/omnisport/f4/c0/lowrycropped_1k3659xhq6off1m46wuwsmgjmc.jpg?t=1425822259&quality=100); }
+    .panel2 { background-image:url(https://usatthebiglead.files.wordpress.com/2019/06/fred-vanvleet.jpg?w=1000&h=600&crop=1?w=1000&crop=0); }
+    .panel3 { background-image:url(https://www.totalprosports.com/wp-content/uploads/2019/06/GettyImages-1155812450-1024x683.jpg); }
+    .panel4 { background-image:url(https://chumley.barstoolsports.com/wp-content/uploads/2019/06/25/GettyImages-1150607728-1024x683.jpg); }
+    .panel5 { background-image:url(http://newarena.com/wp-content/uploads/2019/06/Capture-234.png); }
+
+    /* Flex Children */
+    .panel > * {
+      margin: 0;
+      width: 100%;
+      transition: transform 0.5s;
+      flex: 1 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .panel > *:first-child {transform: translateY(-100%);}
+    .panel.open-active > *:first-child {transform: translateY(0);}
+ 
+    .panel p {
+      text-transform: uppercase;
+      font-family: 'Amatic SC', cursive;
+      text-shadow: 0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
+      font-size: 2em;
+    }
+    
+    .panel p:nth-child(2) {
+      font-size: 4em;
+    }
+
+    .panel.open {
+      flex: 5;
+      font-size: 40px;
+    }
+
+  </style>
+
+
+  <div class="panels">
+    <div class="panel panel1">
+      <p>16.2 pts, 7.2 ast, 4.0 reb, 51.3 eFG%</p>
+      <p>Kyle Lowry</p>
+    </div>
+    <div class="panel panel2">
+      <p>14.0 pts, 2.2 ast, 2.7 reb, 57.1 eFG%</p>
+      <p>Fred VanVleet</p>
+    </div>
+    <div class="panel panel3">
+      <p>28.5 pts, 9.8 reb, 4.2 ast, 50.0 eFG%</p>
+      <p>Kawhi Leonard</p>
+    </div>
+    <div class="panel panel4">
+      <p>19.8 pts, 7.5 reb, 3.7 ast, 53.1 eFG%</p>
+      <p>Pascal Siakam</p>
+    </div>
+    <div class="panel panel5">
+      <p>12.0 pts, 7.3 reb, 2.7 ast, 51.1 eFG%</p>
+      <p>Marc Gasol</p>
+    </div>
+  </div>
+
+  <script>
+    // Grab the panel that has been clicked
+    const panels = document.querySelectorAll('.panel');
+
+    // Define a function to add the 'open' class to the panel (first transformation)
+    function toggleClass() {
+      this.classList.toggle('open');
+    };
+
+    // Define a function to add the 'open-active' class to the panel (second transformation)
+    function toggleActive(event) {
+      if (event.propertyName.includes('flex')) {
+        this.classList.toggle('open-active');
+      }
+    };
+    
+    panels.forEach(panel => panel.addEventListener('click', toggleClass));
+    // Second event listener is set to 'transitionend' for timing purpose
+    panels.forEach(panel => panel.addEventListener('transitionend', toggleActive));
+  </script>
+
+
+
+</body>
+</html>
