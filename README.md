@@ -1,5 +1,6 @@
 # Javascript30
 Completing Wes Bos' online vanilla JavaScript series: [JavaScript30](https://javascript30.com/).
+![JavaScript30 Challenge](https://javascript30.com/images/JS3-social-share.png)
 
 ### Completed Exercises
 * JavaScript Drum Kit (build a keyboard-based drum kit with audio and CSS changes based on key press)
@@ -10,4 +11,5 @@ Completing Wes Bos' online vanilla JavaScript series: [JavaScript30](https://jav
 ### Next Up
 * Flex Panel Gallery
 * Type Ahead
-* Array Cardio Day 2
+* Array Cardio Day 1
+
